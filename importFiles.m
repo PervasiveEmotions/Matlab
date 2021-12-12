@@ -1,4 +1,5 @@
-function  [neutralMatrix, calmMatrix, happyMatrix, sadMatrix, angryMatrix, fearfulMatrix, disgustMatrix, suprisedMatrix] = importFiles() %this function imports data from the RAVDESS English Database,
+function  [neutralMatrix, calmMatrix, happyMatrix, sadMatrix, angryMatrix, fearfulMatrix, disgustMatrix, suprisedMatrix] = importFiles() 
+%this function imports data from the RAVDESS English Database,
 %The database contains 24 professional actors 
 %(12 female, 12 male), vocalizing two lexically-matched statements in a neutral North American accent.
 %Filename identifiers:
@@ -21,7 +22,6 @@ angryMatrix = zeros(140000, 1);
 fearfulMatrix = zeros(140000, 1);
 disgustMatrix = zeros(140000, 1);
 suprisedMatrix = zeros(140000, 1);
-counter = 0;
 for a = 1:8
     for b = 1:2
         for c = 1:2
@@ -42,8 +42,6 @@ for a = 1:8
                         if isrow(y)
                             y = y';
                         end
-
-                        %testDataMap(filename) = y;
                         
                         if a == 1
                             neutralMatrix = [neutralMatrix, y];
@@ -81,3 +79,12 @@ for a = 1:8
     end
         
 end
+%delete first column of the matrixes, as they are 0s
+neutralMatrix(:,1) = [];
+calmMatrix(:,1) = [];
+happyMatrix(:,1) = [];
+sadMatrix(:,1) = [];
+angryMatrix(:,1) = [];
+fearfulMatrix(:,1) = [];
+disgustMatrix(:,1) = [];
+suprisedMatrix(:,1) = [];
