@@ -1,0 +1,8 @@
+function net = trainNetworkShowConfusion(inputs, targets)
+
+net = patternnet (10); % one layer with 10 hidden neurons  
+view(net); %show net on gui
+net = train (net, inputs, targets); %train net
+
+predicted = net (inputs); %all predicted classes done by NN
+plotconfusion(targets,predicted);%show accuracy
