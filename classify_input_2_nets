@@ -1,4 +1,4 @@
-function [result] = classify_input_2_nets(net1, input_location)
+function [result] = classify_input_2_nets(net1, net2, input_location)
 %this function determines the class (emotion) to which the input
 %corresponds. It does this by extracting the mfcc from the audio file(4s)
 %and inputting this values in the already trained NN. The function returns a 4
