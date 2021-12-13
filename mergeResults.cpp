@@ -41,10 +41,11 @@ int positivityAnalysis(int emotionPositivity, int voice){   //This function anal
 }
 
 std::string mergeResults(int text, int voice){                      //This function is the main one because it calls the other two.
-    std::string emotionName;                                        //It returns the name of the emotion's state following the 
-                                                                    //emotionID variable which is compared to all emotions listed
-    int emotionPositivity = positivityDetermination(text);          //below
-    int emotionID = positivityAnalysis(emotionPositivity, voice);
+    voice = voice / 1000;                                           //It returns the name of the emotion's state following the
+    std::string emotionName;                                        //emotionID variable which is compared to all emotions listed 
+                                                                    //below. The voice parameter is divided by 1000 because the output
+    int emotionPositivity = positivityDetermination(text);          //of the voice recognition funtion is in the thousands (6000 for
+    int emotionID = positivityAnalysis(emotionPositivity, voice);   //emotion n°6).
 
     switch (emotionID)
     {
